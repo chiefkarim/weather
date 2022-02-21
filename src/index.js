@@ -22,7 +22,7 @@ const getWeatherInfos = async function () {
   async function getGeocording() {
     const location = document.querySelector("#Location").value;
     const geocordingApi = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${apiKey}`;
-    const response = await fetch(geocordingApi, { mode: "cors" });
+    const response = await fetch(geocordingApi,);
     const geocordings = await response.json();
     return { lat: geocordings[0].lat, lon: geocordings[0].lon, geocordings };
   }
@@ -32,7 +32,7 @@ const getWeatherInfos = async function () {
       const lon = geocordings.lon;
       const units = "metric";
       const currentWeatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-      const response = await fetch(currentWeatherApi, { mode: "cors" });
+      const response = await fetch(currentWeatherApi,);
       const weather = await response.json();
 
       return { weather };
