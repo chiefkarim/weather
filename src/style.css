@@ -1,0 +1,67 @@
+#background {
+  position: fixed;
+  background: url("./images/initialBackground.jpg");
+  width: 100vw;
+  height: 100vh;
+  filter: brightness(70%);
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-filter: brightness(70%);
+}
+body {
+  display: grid;
+  justify-content: start;
+  justify-items: center;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10vh;
+  margin: 0;
+}
+.currentWeather {
+  justify-self: start;
+  padding-left: 10%;
+  color: white;
+}
+.currentWeather > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 4px;
+}
+.content {
+  display: grid;
+  grid-template-columns: 33vw 67vw;
+  grid-auto-flow: column;
+  justify-self: start;
+}
+.LocationContainer {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+button {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+pre {
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+}
+h1 {
+  color: white;
+}
