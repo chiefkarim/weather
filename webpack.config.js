@@ -9,7 +9,6 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-  target: "node",
   devServer: {
     static: "./dist",
   },

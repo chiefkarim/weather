@@ -1,5 +1,4 @@
 import "./style.css";
-import fetch from "node-fetch";
 
 const apiKey = "17e4ce86e3f52b9995d463e57b607f01";
 const body = document.querySelector("body");
