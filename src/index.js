@@ -1,4 +1,6 @@
 import "./style.css";
+import fetch from "node-fetch";
+
 const apiKey = "17e4ce86e3f52b9995d463e57b607f01";
 const body = document.querySelector("body");
 body.innerHTML = `
@@ -23,7 +25,6 @@ const getWeatherInfos = async function () {
     const location = document.querySelector("#Location").value;
     const geocordingApi = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${apiKey}`;
     const response = await fetch(geocordingApi, {
-      headers: { "Access-Control-Allow-Origin": "*" },
       mode: "cors",
     });
     const geocordings = await response.json();
@@ -31,12 +32,11 @@ const getWeatherInfos = async function () {
   }
   getGeocording()
     .then(async (geocordings) => {
-      const lat = geocordings.lat;
-      const lon = geocordings.lon;
+      const { lat } = geocordings;
+      const { lon } = geocordings;
       const units = "metric";
       const currentWeatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
       const response = await fetch(currentWeatherApi, {
-        headers: { "Access-Control-Allow-Origin": "*" },
         mode: "cors",
       });
       const weather = await response.json();
@@ -44,7 +44,7 @@ const getWeatherInfos = async function () {
       return { weather };
     })
     .then((value) => {
-      const weather = value.weather;
+      const { weather } = value;
       const showWeather = document.querySelector(".currentWeather");
       showWeather.innerHTML = `
       <h1>${weather.sys.country}, ${weather.name}</h1>
