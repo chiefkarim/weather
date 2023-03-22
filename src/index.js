@@ -2,6 +2,7 @@ import "./style.css";
 
 const apiKey = "17e4ce86e3f52b9995d463e57b607f01";
 const body = document.querySelector("body");
+
 body.innerHTML = `
 <div id="background"></div>
 <pre>no matter the weather, exploring the earth is always an interesting experience.</pre>
@@ -17,8 +18,8 @@ body.innerHTML = `
       <div>
    </div>
 `;
-const search = document.querySelector("#search");
 
+const search = document.querySelector("#search");
 const getWeatherInfos = async function () {
   async function getGeocording() {
     const location = document.querySelector("#Location").value;
@@ -27,6 +28,7 @@ const getWeatherInfos = async function () {
       mode: "cors",
     });
     const geocordings = await response.json();
+            
     return { lat: geocordings[0].lat, lon: geocordings[0].lon, geocordings };
   }
   getGeocording()
